@@ -1,28 +1,39 @@
 import shutil
 import os
+
+#define the folders to look through
 folders = os.listdir("./")
 
-fileTypes = []
+#set an array for the file types
+file_types = []
 
-
+#create a list of file types
 for root, dirs, files in os.walk("."):
     for filename in files:
-        theType = filename.split(".")[-1]
-        if theType not in fileTypes:
-            fileTypes.append(theType)
-print fileTypes
+        the_type = filename.split(".")[-1]
+        if the_type not in file_types:
+            file_types.append(the_type)
+            
+##OPTIONAL: print out the list of file types ##
+print file_types
 
-for fileType in fileTypes:
-    destination = "./"+fileType+"/"
+for file_type in file_types:
+    #define the function for making folders
     def create_path(path):
         if not os.path.isdir(path):
             os.mkdir(path)
 
-    create_path(fileType)
-
+    #use the function
+    create_path(file_type)
+    
+    #make a variable for the target destinations
+    destination = "./"+file_type+"/"
+    
+    #loop through each file in the folders
     for files in folders:
-        if files.endswith("."+fileType):
+        if files.endswith("."+file_type):
             if files == 'fileOrganizer.py':
-                print "found file organizer"
+                print "Found file organizer so ignoring it."
             else:
                 shutil.move(files,destination)
+print "Script has completed"
