@@ -1,6 +1,6 @@
 import shutil
 import os
-source = os.listdir("./")
+folders = os.listdir("./")
 
 fileTypes = []
 
@@ -20,7 +20,7 @@ for fileType in fileTypes:
 
     create_path(fileType)
 
-    for files in source:
+    for files in folders:
         if files.endswith("."+fileType):
             if files == 'fileOrganizer.py':
                 print "found file organizer"
