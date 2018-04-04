@@ -14,11 +14,11 @@ print fileTypes
 
 for fileType in fileTypes:
     destination = "./"+fileType+"/"
-    def createPath(path):
+    def create_path(path):
         if not os.path.isdir(path):
             os.mkdir(path)
 
-    createPath(fileType)
+    create_path(fileType)
 
     for files in source:
         if files.endswith("."+fileType):
