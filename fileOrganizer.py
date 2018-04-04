@@ -15,7 +15,7 @@ for root, dirs, files in os.walk("."):
             file_types.append(the_type)
             
 ##OPTIONAL: print out the list of file types ##
-print file_types
+print ('These are file types: \n {}').format(file_types)
 
 for file_type in file_types:
     #define the function for making folders
